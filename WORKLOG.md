@@ -129,7 +129,18 @@ steadily 0.046 → 0.079. Confirms the session-1 finding that "best" is picked o
 
 - Pulse rates were genuinely sub-unity (0.34/0.39/0.46), unlike ternary's pinned 1.000.
 - `hmtj.py` has no checkpoint-resume, so a restart begins from epoch 1.
-  `results/hmtj_cpu_run_2026-09-24.log` kept on disk, uncommitted.
+  `results/hmtj_cpu_run_2026-09-24.log` committed in `ef0ee71` for reference.
+
+### 12:47 — Session paused; branch pushed
+- Committed the partial HMTJ log and pushed `test_run` to `origin`: `a095e92` (BLIF rerun,
+  plotting script, images), `1f51014` (session work log), `ef0ee71` (HMTJ partial log).
+- Nothing running at pause: no training processes, no background watchers.
+
+### Progress: 1 of 4 models complete
+- BLIF done (twice, identical results). HMTJ reached 1.5/10 epochs then stopped.
+  SMTJ and ternary not started.
+- Remaining ≈ 6 h of CPU time run sequentially; the Kaggle GPU route would cut that to
+  well under an hour.
 
 ### Open to-do (carried forward)
 - [ ] Run HMTJ to completion (~2 h, 8 threads), then SMTJ and ternary
@@ -137,4 +148,4 @@ steadily 0.046 → 0.079. Confirms the session-1 finding that "best" is picked o
 - [ ] Make BLIF a fair baseline (Adam 1e-3, spike-count loss, grad clip 1.0)
 - [ ] Add a validation split (e.g. 55k / 5k) for checkpoint selection
 - [ ] Update top-level README (add `ternary_mtj`, fix install line)
-- [ ] Push `test_run` to `origin` (commits `a095e92` and later are local only)
+- [x] Push `test_run` to `origin` — done 2026-09-24 12:47
